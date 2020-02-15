@@ -4,11 +4,11 @@ const mongoose = require('mongoose');
 
 const Promos = require('../models/promotions');
 
-const promoRouter = express.Router();
+const promotionRouter = express.Router();
 
-promoRouter.use(bodyParser.json());
+promotionRouter.use(bodyParser.json());
 
-promoRouter.route('/')
+promotionRouter.route('/')
 .get((req,res,next) => {
     Promos.find({})
     .then((promos) => {
@@ -42,7 +42,7 @@ promoRouter.route('/')
     .catch((err)=> next(err));
 });
 
-promoRouter.route('/:promoId')
+promotionRouter.route('/:promoId')
 .get((req, res, next) => {
     Promos.findById(req.params.promoId)
     .then((promo) => {
