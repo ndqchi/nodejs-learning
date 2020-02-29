@@ -32,7 +32,7 @@ leaderRouter.route('/')
 })
 .put(cors.corsWithOptions, authenticate.verifyUser, authenticate.verifyAdmin, (req, res, next) => {
     res.statusCode = 403;
-    res.end('PUT operation not supported on /leadertions');
+    res.end('PUT operation not supported on /leaders');
 })
 .delete(cors.corsWithOptions, authenticate.verifyUser, authenticate.verifyAdmin, (req, res, next) => {
     Leaders.remove({})
@@ -57,7 +57,7 @@ leaderRouter.route('/:leaderId')
 })
 .post(cors.corsWithOptions, authenticate.verifyUser, authenticate.verifyAdmin, (req, res, next) => {
     res.statusCode = 403;
-    res.end('POST operation not supported on /leadertions/' + req.params.leaderId);
+    res.end('POST operation not supported on /leaders/' + req.params.leaderId);
 })
 .put(cors.corsWithOptions, authenticate.verifyUser, authenticate.verifyAdmin, (req, res, next) => {
     Leaders.findByIdAndUpdate(req.params.leaderId, {
